@@ -73,14 +73,19 @@ articleView.handleMainNav = function () {
 
 articleView.setTeasers = function() {
   $('.article-body *:nth-of-type(n+2)').hide();
-  /* TODO: Add a delegated event handler to reveal the remaining paragraphs.
-    When a .read-on link is clicked, we can:
-    1. Prevent the defaul actionof a link.
-    2. Reveal everything in that particular article now.
-    3. Hide that read-on link!
+  /* TODO: Add a delegated event handler to reveal the remaining paragraphs.*/
+  var $readOn = $('a.read-on');
+    // When a .read-on link is clicked, we can:
+  $readOn.on('click', function(event){
+    // 1. Prevent the defaul actionof a link.
+    event.preventDefault();
+    // 2. Reveal everything in that particular article now.
+    $('.article-body *:nth-of-type(n+2)').show();
+    // 3. Hide that read-on link!
+    $readOn.hide();
+  });
 
     // STRETCH GOAl!: change the 'Read On' link to 'Show Less'
-  */
 };
 
 // TODO: Invoke all of the above functions (I mean, methods!):
@@ -88,3 +93,4 @@ articleView.populateFilters();
 articleView.handleAuthorFilter();
 articleView.handleCategoryFilter();
 articleView.handleMainNav();
+articleView.setTeasers();
