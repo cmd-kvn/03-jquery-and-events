@@ -80,7 +80,8 @@ articleView.setTeasers = function() {
     // 1. Prevent the defaul actionof a link.
     event.preventDefault();
     // 2. Reveal everything in that particular article now.
-    $('.article-body *:nth-of-type(n+2)').show();
+    // $('.article-body *:nth-of-type(n+2)').show();
+    $readOn.parent().find('*').show();
     // 3. Hide that read-on link!
     $readOn.hide();
   });
